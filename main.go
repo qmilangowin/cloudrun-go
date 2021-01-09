@@ -18,7 +18,7 @@ func main() {
 	//Setup flags to pass options
 	flag.StringVar(&handlers.Sourcepath, "sourcepath", "/home/data/bad/comedy", "Location of Data Files")
 	flag.StringVar(&handlers.Outputpath, "outputpath", "/home/output", "Location of Indexed Files")
-	flag.StringVar(&handlers.Dataset, "dataset", "michel-bad-comedy-now", "dataset name")
+	flag.StringVar(&handlers.Dataset, "dataset", "michel-bad-comedy-now-2", "dataset name")
 	addr := flag.String("addr", ":8080", "HTTP Service Port Number")
 	flag.Parse()
 
