@@ -1,5 +1,5 @@
 steps:
-  - name: 'grc.io/cloud-builds/docker'
+  - name: 'gcr.io/cloud-builds/docker'
     args: ['build', '-t', 'gcr.io/$PROJECT_ID/bdi-test-service:$COMMIT_SHA', '.']
     timeout: 500s
   - name: 'gcr.io/cloud-builders/docker'
