@@ -3,7 +3,7 @@ steps:
     args: ['build', '-t', 'gcr.io/$PROJECT_ID/bdi-test-service:$COMMIT_SHA', '.']
     timeout: 500s
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', '-t', 'gcr.io/$PROJECT_ID/bdi-test-service:$COMMIT_SHA', '.']
+    args: ['push', 'gcr.io/$PROJECT_ID/bdi-test-service:$COMMIT_SHA']
   - name: 'gcr.io/cloud-builders/docker'
     args: 
     - 'run'
