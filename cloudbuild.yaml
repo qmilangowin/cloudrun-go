@@ -4,7 +4,7 @@ steps:
     timeout: 500s
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/$PROJECT_ID/bdi-test-service:$COMMIT_SHA']
-  - name: 'gcr.io/cloud-builders/docker'
+  - name: 'gcr.io/cloud-builders/gcloud'
     args: 
     - 'run'
     - 'deploy'
@@ -15,6 +15,6 @@ steps:
     - 'europe-west1'
     - '--platform'
     - 'managed'
-    - '--allowed-unauthenticated'
+    - '--allow-unauthenticated'
 images:
   - 'gcr.io/$PROJECT_ID/bdi-test-service:$COMMIT_SHA'
