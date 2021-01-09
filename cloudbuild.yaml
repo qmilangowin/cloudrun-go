@@ -10,7 +10,7 @@ steps:
     - 'deploy'
     - 'bdi-test-service-2'
     - '--image'
-    - 'gcr.io/$PROJECT/bdi-test-service:$COMMIT_SHA'
+    - 'gcr.io/$PROJECT_ID/bdi-test-service:$COMMIT_SHA'
     - '--region'
     - 'europe-west1'
     - '--platform'
