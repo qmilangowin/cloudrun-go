@@ -16,8 +16,14 @@ steps:
     - '--platform'
     - 'managed'
     - '--allow-unauthenticated'
-    - '--latestRevision'
-    - 'true'
-
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+    - 'run'
+    - 'services'
+    - 'update-traffic'
+    - 'bdi-test-service'
+    - '--to-latest'
+    - '--region'
+    - 'europe-west1'
 images:
   - 'gcr.io/$PROJECT_ID/bdi-test-service:$COMMIT_SHA'
