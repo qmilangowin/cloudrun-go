@@ -16,9 +16,9 @@ import (
 func main() {
 
 	//Setup flags to pass options
-	flag.StringVar(&handlers.Sourcepath, "sourcepath", "/home/data/fake/path/cloud-run", "Location of Data Files")
+	flag.StringVar(&handlers.Sourcepath, "sourcepath", "/home/data/fake/path/cloud-run-50", "Location of Data Files")
 	flag.StringVar(&handlers.Outputpath, "outputpath", "/home/output", "Location of Indexed Files")
-	flag.StringVar(&handlers.Dataset, "dataset", "cloud-run-ci-cd", "dataset name")
+	flag.StringVar(&handlers.Dataset, "dataset", "cloud-run-ci-cd-50-traffic", "dataset name")
 	addr := flag.String("addr", ":8080", "HTTP Service Port Number")
 	flag.Parse()
 
