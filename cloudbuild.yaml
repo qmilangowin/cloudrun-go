@@ -34,7 +34,7 @@ steps:
     - 'update-traffic'
     - 'bdi-test-service'
     - '--to-revisions'
-    - 'LATEST=50'
+    - 'LATEST=50,bdi-test-service-00018-pak=50'
     - '--region'
     - 'europe-west1'
     - '--platform'
