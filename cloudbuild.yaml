@@ -16,5 +16,8 @@ steps:
     - '--platform'
     - 'managed'
     - '--allow-unauthenticated'
+    - '--latestRevision'
+    - 'true'
+
 images:
   - 'gcr.io/$PROJECT_ID/bdi-test-service:$COMMIT_SHA'
