@@ -25,5 +25,7 @@ steps:
     - '--to-latest'
     - '--region'
     - 'europe-west1'
+    - '--platform'
+    - 'managed'
 images:
   - 'gcr.io/$PROJECT_ID/bdi-test-service:$COMMIT_SHA'
