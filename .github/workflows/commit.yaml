@@ -1,0 +1,13 @@
+name: workflow on commit
+on: 
+  push:
+    branches:
+      - master
+      - dev_*
+jobs:
+  build:
+    name: Docker build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses
