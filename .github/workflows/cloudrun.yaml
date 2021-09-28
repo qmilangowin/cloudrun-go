@@ -15,4 +15,8 @@ jobs:
     - name: Build the Docker image
       env: 
         PROJECT_ID: cloud-run-286409
-      run: docker build . --file Dockerfile --tag gcr.io/$PROJECT_ID/bdi-test-service
+      run: docker build . --file Dockerfile --tag gcr.io/$PROJECT_ID/bdi-test-service:$GITHUB_SHA
+    - name: Push the Docker Image
+      env: 
+        PROJECT_ID: cloud-run-286409
+      run: docker push gcr.io/$PROJECT_ID/bdi-test-service:$GITHUB_SHA
