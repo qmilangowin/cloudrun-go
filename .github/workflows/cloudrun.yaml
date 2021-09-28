@@ -1,19 +1,10 @@
 name: Cloud Run
-env:
-  GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
-
 on:
   pull_request:
     branches: 
       - main
       - dev_*
 jobs:
-  # build-image:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name: Build the Docker image
-  #     run: docker build . --file Dockerfile --tag gcr.io/$GCP_PROJECT_ID/bdi-test-service:$GITHUB_SHA
   build-and-push-to-gcr:
     runs-on: ubuntu-latest
     steps:
@@ -25,7 +16,7 @@ jobs:
         with:
           gcloud_service_key: ${{ secrets.GCP_SA_KEY  }}
           registry: gcr.io
-          project_id: env.GCP_PROJECT_ID
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
           image_name: bdi-test-service
           
   deploy-cloud-run:
