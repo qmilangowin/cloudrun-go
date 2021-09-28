@@ -36,7 +36,6 @@ jobs:
           image: gcr.io/cloud-run-286409/bdi-test-service
           service: bdi-test-service
           region: europe-west1
-          args: --allow-unauthenticated
       - name: list docker images
         run: docker images
     
