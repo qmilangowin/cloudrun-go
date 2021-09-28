@@ -1,5 +1,5 @@
 bdi_test-service:
-  image: qliktech-docker-infrastructure.jfrog.io/bdi-test-service:${VER}
+  image: bdi-test-service
   privileged: true
   volumes:
       - ~/home/data:/home/data
