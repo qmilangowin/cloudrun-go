@@ -20,7 +20,7 @@ jobs:
       - uses: google-github-actions/setup-gcloud@master
       - uses: RafikFarhad/push-to-gcr-github-action@v4
         with:
-          gcloud_services_key: $${{ secrets.GCP_SA_KEY  }}
+          gcloud_service_key: $${{ secrets.GCP_SA_KEY  }}
           registry: gcr.io
           project_id: $${{ secrets.GCP_PROJECT_ID }}
           image_name: gcr.io/$GCP_PROJECT_ID/bdi-test-service:$GITHUB_SHA
