@@ -24,7 +24,7 @@ jobs:
           GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
         with:
           credentials: $${{ secrets.GCP_SA_KEY }}
-          image: gcr.io/$GCP_PROJECT_ID/bdi-test-service:$GITHUB_SHA
+          image: gcr.io/$GCP_PROJECT_ID/bdi-test-service
           service: bdi-test-service
 
 
