@@ -26,7 +26,7 @@ jobs:
           credentials: $${{ secrets.GCP_SA_KEY }}
           image: gcr.io/cloud-run-286409/bdi-test-service
           service: bdi-test-service
-        name: list docker images
+      - name: list docker images
         run: docker images
     
 
