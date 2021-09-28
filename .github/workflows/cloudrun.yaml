@@ -7,8 +7,7 @@ on:
       - dev_*
 
 jobs:
-
-  build:
+  build-image:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -16,3 +15,16 @@ jobs:
       env: 
         GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
       run: docker build . --file Dockerfile --tag gcr.io/$GCP_PROJECT_ID/bdi-test-service:$GITHUB_SHA
+  deploy-cloud-run:
+    runs-on: self-hosted
+    steps:
+      - uses: google-github-actions/deploy-cloudrun@main
+        name: Deploy the Cloud Run Service
+        env: 
+        GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+        with:
+          credentials: $${{ secrets.GCP_SA_KEY }}
+          image: gcr.io/$GCP_PROJECT_ID/bdi-test-service:$GITHUB_SHA
+          service: bdi-test-service
+
+
