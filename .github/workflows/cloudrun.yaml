@@ -26,17 +26,17 @@ jobs:
           project_id: cloud-run-286409
           image_name: bdi-test-service
           
-  # deploy-cloud-run:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: google-github-actions/deploy-cloudrun@main
-  #       name: Deploy the Cloud Run Service
-  #       with:
-  #         credentials: $${{ secrets.GCP_SA_KEY }}
-  #         image: gcr.io/$GCP_PROJECT_ID/bdi-test-service
-  #         service: bdi-test-service
-  #     - name: list docker images
-  #       run: docker images
+  deploy-cloud-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: google-github-actions/deploy-cloudrun@main
+        name: Deploy the Cloud Run Service
+        with:
+          credentials: $${{ secrets.GCP_SA_KEY }}
+          image: gcr.io/$GCP_PROJECT_ID/bdi-test-service
+          service: bdi-test-service
+      - name: list docker images
+        run: docker images
     
 
 
