@@ -7,8 +7,7 @@ on:
       - dev_*
 jobs:
   build:
-    name: Docker build
-    runs:
-      using: 'docker'
-      image: 'Dockerfile'
+      runs-on: ubuntu-latest
+      container:
+        image: 'Dockerfile'
 
