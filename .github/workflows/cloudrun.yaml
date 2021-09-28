@@ -33,7 +33,7 @@ jobs:
         name: Deploy the Cloud Run Service
         with:
           credentials: $${{ secrets.GCP_SA_KEY }}
-          image: gcr.io/env.GCP_PROJECT_ID/bdi-test-service
+          image: gcr.io/$${{ secrets.GCP_PROJECT_ID }}/bdi-test-service
           service: bdi-test-service
           region: europe-west1
       - name: list docker images
