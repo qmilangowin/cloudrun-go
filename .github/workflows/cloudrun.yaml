@@ -15,19 +15,19 @@ jobs:
       env: 
         GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
       run: docker build . --file Dockerfile --tag gcr.io/$GCP_PROJECT_ID/bdi-test-service:$GITHUB_SHA
-  deploy-cloud-run:
-    runs-on: ubuntu-latest
-    env: 
-      GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
-    steps:
-      - uses: google-github-actions/deploy-cloudrun@main
-        name: Deploy the Cloud Run Service
-        with:
-          credentials: $${{ secrets.GCP_SA_KEY }}
-          image: gcr.io/cloud-run-286409/bdi-test-service
-          service: bdi-test-service
-      - name: list docker images
-        run: docker images
+  # deploy-cloud-run:
+  #   runs-on: ubuntu-latest
+  #   env: 
+  #     GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+  #   steps:
+  #     - uses: google-github-actions/deploy-cloudrun@main
+  #       name: Deploy the Cloud Run Service
+  #       with:
+  #         credentials: $${{ secrets.GCP_SA_KEY }}
+  #         image: gcr.io/$GCP_PROJECT_ID/bdi-test-service
+  #         service: bdi-test-service
+  #     - name: list docker images
+  #       run: docker images
     
 
 
