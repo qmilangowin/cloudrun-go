@@ -17,8 +17,8 @@ jobs:
       run: docker build . --file Dockerfile --tag gcr.io/$GCP_PROJECT_ID/bdi-test-service:$GITHUB_SHA
   deploy-cloud-run:
     runs-on: ubuntu-latest
-      env: 
-        GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+    env: 
+      GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
     steps:
       - uses: google-github-actions/deploy-cloudrun@main
         name: Deploy the Cloud Run Service
