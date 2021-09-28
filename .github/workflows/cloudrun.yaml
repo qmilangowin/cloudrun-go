@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: google-github-actions/deploy-cloudrun@main
-        name: Deploy the Cloud Run Service
+      - name: Deploy the Cloud Run Service
         env: 
           GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
         run: echo $GCP_PROJECT_ID
