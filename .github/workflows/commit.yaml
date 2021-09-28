@@ -1,13 +1,8 @@
+name: workflow-name
+on: push
 
-name: Go
-on: 
-  push:
-    branches:
-      - master
-      - dev_*
 jobs:
-  build:
-      runs-on: ubuntu-latest
-      container:
-        image: 'Dockerfile'
-
+  job-name:
+    runs-on: ubuntu-latest
+    container:
+      image: 'Dockerfile'
