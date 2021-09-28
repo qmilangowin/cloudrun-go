@@ -1,6 +1,6 @@
 name: Cloud Run
 env:
-  GCP_PROJECT_ID: $${{ secrets.GCP_PROJECT_ID }}
+  GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
 
 on:
   pull_request:
@@ -23,9 +23,9 @@ jobs:
       - uses: google-github-actions/setup-gcloud@master
       - uses: RafikFarhad/push-to-gcr-github-action@v4
         with:
-          gcloud_service_key: $${{ secrets.GCP_SA_KEY  }}
+          gcloud_service_key: ${{ secrets.GCP_SA_KEY  }}
           registry: gcr.io
-          project_id: cloud-run-286409
+          project_id: env.GCP_PROJECT_ID
           image_name: bdi-test-service
           
   deploy-cloud-run:
@@ -34,8 +34,8 @@ jobs:
       - uses: google-github-actions/deploy-cloudrun@main
         name: Deploy the Cloud Run Service
         with:
-          credentials: $${{ secrets.GCP_SA_KEY }}
-          image: gcr.io/$${{ secrets.GCP_PROJECT_ID }}/bdi-test-service
+          credentials: ${{ secrets.GCP_SA_KEY }}
+          image: gcr.io/${{ secrets.GCP_PROJECT_ID }}/bdi-test-service
           service: bdi-test-service
           region: europe-west1
       - name: list docker images
